@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{B00EA15E-5719-05D1-0AA5-E2051F3EA294}</ProjectGuid>
+	<ProjectGuid>{2853C4AA-2701-A103-1F34-456CF75DBA46}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -50,18 +50,24 @@
      <Compile Include="Assets\Pacman\Scripts\BoxChecker.cs" />
      <Compile Include="Assets\Pacman\Scripts\Eater.cs" />
      <Compile Include="Assets\Pacman\Scripts\MoveScript.cs" />
-     <Compile Include="Assets\Pause\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\CoinFlyDown.cs" />
      <Compile Include="Assets\Scripts\FallingCube.cs" />
      <Compile Include="Assets\Scripts\GlobalVariablesScripts.cs" />
+     <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\SpeedFloor.cs" />
      <Compile Include="Assets\Scripts\SpikeFloor.cs" />
      <Compile Include="Assets\Scripts\Teleport.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

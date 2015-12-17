@@ -20,13 +20,15 @@ public class GlobalVariablesScripts : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		text.text = "Level: " + level.ToString() + " Score: " + totalScore.ToString();
+		//text.text = "Level: " + level.ToString() + " Score: " + totalScore.ToString();
 		pillCount = GameObject.FindGameObjectsWithTag("Pill").Concat(GameObject.FindGameObjectsWithTag("SuperPill")).ToArray();
 		//-------------------For debugging, will remove later-------------------
+		/*
 		for(int i = 10; i < pillCount.Length; i++){
 			pillCount[i].SetActive(false);
 		}
 		pillCounter = 10;
+		*/
 		//-------------------For debugging, will remove later------------------- 	
 	}
 	

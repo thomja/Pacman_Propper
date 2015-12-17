@@ -4,10 +4,12 @@ using System.Collections;
 public class MoveScript : MonoBehaviour {
 	private int myDirection = 0;
 	private bool moveForward;
+	private bool willFall;
 	public float speed = 1;
 	public GameObject[] myBoxes;
 	public BoxChecker[] myBoxCheckers;
 	public Vector3 startPosition;
+	RaycastHit hit;
 	// Use this for initialization
 	void Start () {
 		//Returning other instances to variables.
@@ -48,10 +50,22 @@ public class MoveScript : MonoBehaviour {
 			myDirection = 1;
 			CheckTurn ();
 		}
+		//Vector3.Distance(hit.collider.gameObject.transform.position, transform.position)
+		if (Physics.Raycast(transform.position, Vector3.down, out hit) && Vector3.Distance(hit.collider.gameObject.transform.position, transform.position) > 2) {
+			//Debug.Log (Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
+			//print(hit.collider.gameObject.name);
+			willFall = true;
+			if(this.GetComponent<Rigidbody>().isKinematic == true){
+				this.GetComponent<Rigidbody>().constraints &= ~RigidbodyConstraints.FreezePositionY;
+				this.GetComponent<Rigidbody>().isKinematic = false;
+				this.GetComponent<Rigidbody>().useGravity = true;
+				//this.GetComponent<Rigidbody>().AddForce(Vector3.forward * 200);
+			}
+		}
 	}
 
 	void FixedUpdate(){
-		if (myBoxCheckers [0].boxClear == true && moveForward == true) {
+		if (myBoxCheckers [0].boxClear == true && moveForward == true && willFall == false) {
 			transform.Translate (new Vector3 (0f, 0f, 1f) * speed);
 		}
 	}
