@@ -24,12 +24,12 @@ public class GlobalVariablesScripts : MonoBehaviour {
 		pillCount = GameObject.FindGameObjectsWithTag("Pill").Concat(GameObject.FindGameObjectsWithTag("SuperPill")).ToArray();
 		pillCounter = pillCount.Length;
 		//-------------------For debugging, will remove later-------------------
-
+		/*
 		for(int i = 10; i < pillCount.Length; i++){
 			pillCount[i].SetActive(false);
 		}
 		pillCounter = 10;
-
+		*/
 		//-------------------For debugging, will remove later------------------- 	
 	}
 	
