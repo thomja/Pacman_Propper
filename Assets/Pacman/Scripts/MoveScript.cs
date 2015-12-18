@@ -3,18 +3,16 @@ using System.Collections;
 /*----------------------CODED BY THOMAS SP15--------------------------*/
 public class MoveScript : MonoBehaviour {
 	private int myDirection = 0;
-	private bool moveForward;
 	public float speed = 1;
+	private bool moveForward;
 	public GameObject[] myBoxes;
 	public BoxChecker[] myBoxCheckers;
-	public Vector3 startPosition;
 	// Use this for initialization
 	void Start () {
 		//Returning other instances to variables.
 		for(int i = 0; i < myBoxes.Length; i++){
 			myBoxCheckers[i] = myBoxes[i].GetComponent<BoxChecker>();
 		}
-		startPosition = transform.position;
 	}
 	
 	//Check the value of myDirection, if 1 then turn 90 degrees. If 2, turn -90 degrees. Set myDirection to 0.
@@ -33,6 +31,9 @@ public class MoveScript : MonoBehaviour {
 	//If S is pressed then turn backwards, because there is never a wall following you.
 	void Update () {
 		CheckTurn ();
+		if (myBoxCheckers [0].boxClear == true && moveForward == true) {
+			transform.Translate (new Vector3 (0f, 0f, 1f) * speed);
+		}
 		if (Input.GetKeyDown (KeyCode.W)) {
 			moveForward = true;
 		}
@@ -48,14 +49,5 @@ public class MoveScript : MonoBehaviour {
 			myDirection = 1;
 			CheckTurn ();
 		}
-	}
-
-	void FixedUpdate(){
-		if (myBoxCheckers [0].boxClear == true && moveForward == true) {
-			transform.Translate (new Vector3 (0f, 0f, 1f) * speed);
-		}
-	}
-	public void ResetPosition(){
-		transform.position = startPosition;
 	}
 }

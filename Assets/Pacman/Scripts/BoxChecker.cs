@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 /*----------------------CODED BY THOMAS SP15--------------------------
 Code may not be the prettiest by any stretch of the imagination! This is due to us being new to scrum, poor planning, and Dreamhack
 My aim has so far not to make it pretty, just to make sure that it works.*/
 public class BoxChecker : MonoBehaviour {
 	public int isColliding = 0;
 	public bool boxClear;
-	public List<string> DebugList;
 	// Use this for initialization
 	void Start () {
 		boxClear = true;
@@ -31,8 +29,6 @@ public class BoxChecker : MonoBehaviour {
 			isColliding -= 1;
 			if(isColliding == 0){
 				boxClear = true;
-			} else {
-				DebugList.Remove(Col.gameObject.tag);
 			}
 		}
 	}
@@ -43,8 +39,6 @@ public class BoxChecker : MonoBehaviour {
 		if(Col.gameObject.tag != "Terrain" && Col.gameObject.tag != "Pill" && Col.gameObject.tag != "SuperPill" && Col.gameObject.tag != "Ghost" && Col.gameObject.tag != "Teleporter" && Col.gameObject.tag != "fruitPill"){
 			isColliding += 1;
 			boxClear = false;
-		} else {
-			DebugList.Add (Col.gameObject.tag);
 		}
 	}
 }
